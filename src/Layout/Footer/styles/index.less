@@ -1,0 +1,21 @@
+@import "../../../Base/Font/Typography";
+//@import "../../../Constants/layout";
+
+footer {
+  border-top: 1px solid var(--neutral-color_200);
+}
+
+.footer-app {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1048px;
+  width: 100%;
+  &-license, &-rules, &-bank {
+    .Caption-Regular();
+    color: var(--neutral-color_500)
+  }
+  &-rules {
+    margin-right: 20px;
+  }
+}

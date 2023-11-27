@@ -1,0 +1,36 @@
+import React, { memo, lazy, Suspense } from 'react';
+
+const Icons = {
+    down: lazy(() => import('./images/Down')),
+    phone: lazy(() => import('./images/Phone')),
+};
+
+const SIZE = {
+    small: 14,
+    normal: 16,
+    medium: 18,
+    large: 24,
+} as const;
+
+interface Props {
+    name: keyof typeof Icons;
+    size?: keyof typeof SIZE;
+    color?: string;
+    style?: object;
+    className?: string;
+    viewBox?: string;
+    onClick?: void;
+}
+
+function IconBase(props: Props) {
+    const { name, size = 'normal', color = '#ddd', style = {}, className, viewBox = '0 0 16 16', onClick = () => null } = props;
+    const Icon = Icons[name];
+    // @ts-ignore
+    return (
+        <Suspense fallback={null}>
+            <Icon width={SIZE[size]} height={SIZE[size]} color={color} style={style} className={className} viewBox={viewBox} onClick={onClick} />
+        </Suspense>
+    );
+}
+
+export default memo(IconBase);
