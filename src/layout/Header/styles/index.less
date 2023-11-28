@@ -1,0 +1,25 @@
+@import "../../../base/Font/Typography";
+
+.header-app {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &-logo {
+    display: flex;
+  }
+  &-menu {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    &-btn-login {
+      .Base-Small-Medium();
+      color: var(--neutral-color_800);
+      padding: 0 10px;
+      border: 0;
+    }
+    &-btn-request {
+      margin-left: 20px;
+    }
+  }
+}

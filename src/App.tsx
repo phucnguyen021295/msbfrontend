@@ -1,16 +1,16 @@
 import React, {lazy} from 'react';
 import {Layout, Affix, Spin} from 'antd';
 
-import HeaderApp from './Layout/Header';
-import ContentApp from './Layout/Content';
-import FooterApp from './Layout/Footer';
+import HeaderApp from './layout/Header';
+import ContentApp from './layout/Content';
+import FooterApp from './layout/Footer';
 
 const { Header, Footer, Content } = Layout;
 
 const headerStyle: React.CSSProperties = {
     height: 72,
     backgroundColor: '#fff',
-    padding: '16px 40px'
+    padding: '8px 40px'
 };
 
 const contentStyle: React.CSSProperties = {
