@@ -2,7 +2,11 @@ import React, { memo, lazy, Suspense } from 'react';
 
 const Icons = {
     down: lazy(() => import('./images/Down')),
+    right: lazy(() => import('./images/Right')),
     phone: lazy(() => import('./images/Phone')),
+    user: lazy(() => import('./images/User')),
+    fileText: lazy(() => import('./images/FileText')),
+    logout: lazy(() => import('./images/Logout')),
 };
 
 const SIZE = {

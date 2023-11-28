@@ -1,0 +1,73 @@
+import React from 'react';
+import { AppstoreOutlined, UserOutlined, SettingOutlined } from '@ant-design/icons';
+
+// Components
+import MenuBase, {MenuProps} from "../../base/Components/MenuBase";
+
+// Styles
+import './styles/index.less';
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../../store";
+import IconBase from "../../base/Components/IconBase";
+import {logout} from "../../reducers/user";
+import {useNavigate} from "react-router-dom";
+
+type MenuItem = Required<MenuProps>['items'][number];
+
+function getItem(
+    label: React.ReactNode,
+    key?: React.Key | null,
+    icon?: React.ReactNode,
+    children?: MenuItem[],
+): MenuItem {
+    return {
+        key,
+        icon,
+        children,
+        label,
+    } as MenuItem;
+}
+
+const items: MenuItem[] = [
+    getItem('Thông tin tài khoản', 'sub1', <IconBase name={'user'} viewBox={'0 0 24 24'} size={'large'} />),
+    getItem('Thông tin sản phẩm', 'sub2', <IconBase name={'fileText'} viewBox={'0 0 24 24'} size={'large'} />),
+    getItem('Đăng xuất', 'sub3', <IconBase name={'logout'} viewBox={'0 0 24 24'} size={'large'} />),
+];
+
+const MenuAccount: React.FC = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const user = useSelector((state: RootState) => state.user)
+
+    const onClick: MenuProps['onClick'] = (e) => {
+        console.log('click ', e);
+        if(e.key === 'sub3') {
+            navigate('/')
+            dispatch(logout())
+        }
+    };
+
+    return (
+        <div className={"menu-account"}>
+            <div className={"menu-account-fullName"}>
+                <span>{'Nguyễn Hồng Phúc'}</span>
+                {/*<span>{`${user.firstName} ${user.lastName}`}</span>*/}
+            </div>
+            <MenuBase
+                className={"menu-account-list"}
+                style={menuStyle}
+                onClick={onClick}
+                defaultSelectedKeys={['sub1']}
+                mode={'vertical'}
+                inlineIndent={8}
+                items={items}
+            />
+        </div>
+    );
+};
+
+const menuStyle: React.CSSProperties = {
+    width: 331,
+};
+
+export default MenuAccount;

@@ -6,7 +6,7 @@ import type { ButtonProps } from 'antd';
 import themeConfig from './styles/config';
 
 const ButtonBase = React.forwardRef((props: ButtonProps, ref: React.ForwardedRef<HTMLButtonElement>) => {
-    const { children, className, ...rest } = props;
+    const { children, ...rest } = props;
 
     return (
         <ConfigProvider theme={themeConfig}>

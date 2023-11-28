@@ -21,11 +21,6 @@ const HeaderApp: React.FC = () => {
         setModalOpen(true);
     };
 
-    const handleLogout = () => {
-        // Xử lý logic đăng xuất ở đây
-        console.log('User logged out');
-    };
-
     return (
         <div className={'header-app'}>
             <Link to={'/'} className={'header-app-logo'}>
@@ -48,13 +43,7 @@ const HeaderApp: React.FC = () => {
                     Yêu cầu tư vấn
                 </ButtonBase>
                 {
-                    token && (
-                        <UserProfileDropdown
-                            fullName="John Doe"
-                            avatarUrl="https://example.com/avatar.jpg"
-                            onLogout={handleLogout}
-                        />
-                    )
+                    token && (<UserProfileDropdown />)
                 }
             </div>
             <FormLogin isModalOpen={isModalOpen} onModalCancel={() => setModalOpen(false)} />

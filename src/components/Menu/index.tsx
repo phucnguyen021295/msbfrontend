@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import {ConfigProvider, Menu} from 'antd';
-import type { MenuProps, MenuTheme } from 'antd/es/menu';
-import themeConfig from "./styles/config";
-import IconBase from "../../base/Components/IconBase";
-import FormLogin from "../FormLogin";
+// Components
+import MenuBase, {MenuProps} from "../../base/Components/MenuBase";
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -69,27 +66,25 @@ const MenuApp: React.FC = () => {
     };
 
     return (
-        <ConfigProvider theme={themeConfig}>
-            <Menu
-                style={menuStyle}
-                onClick={onClick}
-                mode={'horizontal'}
-                inlineIndent={8}
-                items={items}
-                // expandIcon={({ expanded, onExpand, record }) =>
-                //     expanded ? (
-                //         <MinusOutlined
-                //             style={{ fontSize: '20px' }}
-                //             onClick={(e) => onExpand(record, e)}
-                //         />
-                //     ) : (
-                //         <PlusOutlined
-                //             style={{ fontSize: '20px' }}
-                //             onClick={(e) => onExpand(record, e)}
-                //         />
-                //     )}
-            />
-        </ConfigProvider>
+        <MenuBase
+            style={menuStyle}
+            onClick={onClick}
+            mode={'horizontal'}
+            inlineIndent={8}
+            items={items}
+            // expandIcon={({ expanded, onExpand, record }) =>
+            //     expanded ? (
+            //         <MinusOutlined
+            //             style={{ fontSize: '20px' }}
+            //             onClick={(e) => onExpand(record, e)}
+            //         />
+            //     ) : (
+            //         <PlusOutlined
+            //             style={{ fontSize: '20px' }}
+            //             onClick={(e) => onExpand(record, e)}
+            //         />
+            //     )}
+        />
     );
 };
 

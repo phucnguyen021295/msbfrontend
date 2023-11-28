@@ -12,12 +12,15 @@ import { logout } from '../../reducers/user'
 
 import './styles/index.less'
 import {RootState} from "../../store";
+import {Link, useNavigate} from "react-router-dom";
 
-const UserProfileDropdown = ({ fullName, avatarUrl }) => {
+const UserProfileDropdown: React.FC = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate();
     const user = useSelector((state: RootState) => state.user)
 
     const onLogout = () => {
+        navigate('/')
         dispatch(logout())
     }
 
@@ -25,15 +28,15 @@ const UserProfileDropdown = ({ fullName, avatarUrl }) => {
         {
             key: '1',
             label: (
-                <a  rel="noopener noreferrer" href="/management">
+                <Link to={'management'}>
                     Quản lý tài khoản
-                </a>
+                </Link>
             ),
         },
         {
             key: '2',
             label: (
-                <a rel="noopener noreferrer" href="#" onClick={onLogout}>
+                <a rel="noopener noreferrer" onClick={onLogout}>
                     Đăng xuất
                 </a>
             ),

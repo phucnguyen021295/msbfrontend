@@ -1,0 +1,42 @@
+@import "../../../base/Font/Typography";
+
+.menu-account {
+  &-fullName {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid var(--neutral-color_200);
+    .Title-Blod();
+  }
+  &-list {
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    .ant-menu-item:last-child {
+      border-bottom: 1px solid var(--neutral-color_200);
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+    .ant-menu-item {
+      font-weight: 400;
+      font-size: var(--font-size-normal);
+    }
+    .ant-menu-item-selected {
+      font-weight: 500;
+      svg path {
+        fill: var(--branding-primary-color_500);
+      }
+    }
+    .ant-menu-item-active {
+      svg path {
+        fill: var(--branding-primary-color_500);
+      }
+    }
+    .ant-menu-item-icon {
+      vertical-align: -0.35em !important;
+    }
+    .ant-menu-title-content {
+      margin-left: 12px;
+    }
+  }
+}
