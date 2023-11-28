@@ -24,6 +24,12 @@ const Color = {
         color_600: '#475467',
         color_700: '#344054',
         color_800: '#1D2939',
+    },
+    Functional: {
+        Error: {
+            color_500: '#F04438'
+        }
+
     }
 }
 

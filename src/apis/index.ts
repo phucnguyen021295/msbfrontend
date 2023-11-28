@@ -3,8 +3,8 @@ export const loginApi = (username, password, success, failure) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            username: 'kminchelle',
-            password: '0lelplR',
+            username: username, // 'kminchelle',
+            password: password, // '0lelplR',
         })
     })
         .then(res => res.json())

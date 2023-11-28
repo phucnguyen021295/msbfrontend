@@ -10,16 +10,18 @@ import './styles/index.less';
 import Logo from './styles/images/Logo.png';
 import {RootState} from "../../store";
 import FormLogin from "../../components/FormLogin";
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import IconBase from "../../base/Components/IconBase";
 
 const HeaderApp: React.FC = () => {
     let location = useLocation();
+    const navigate = useNavigate();
     const token = useSelector((state: RootState) => state.user.token)
     const [isModalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
         if(!token && location.pathname.includes('/management')) {
+            navigate('/')
             setModalOpen(true);
         }
     }, [location])

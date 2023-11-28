@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Modal, Form, Space} from 'antd';
 import { useDispatch } from 'react-redux'
 import {useNavigate} from 'react-router-dom';
@@ -29,19 +29,27 @@ const FormLogin: React.FC = (props: Props) => {
     const {isModalOpen, onModalCancel, ...otherProps} = props;
     const dispatch = useDispatch()
     const navigate = useNavigate();
+    const [request, setIsRequest] = useState('');
 
 
     const onLoginSuccess = (responsive) => {
+        if(responsive.message) {
+            onLoginFailure();
+            return;
+        }
         dispatch(update(responsive))
         onModalCancel();
-        navigate('/management')
+        navigate('/management');
+        setIsRequest('success')
     }
 
     const onLoginFailure = (error) => {
-        debugger;
+        setIsRequest('failure')
     }
 
     const onFinish = (values: any) => {
+        setIsRequest('loading')
+        console.log('values', values)
         loginApi(values.username, values.password, onLoginSuccess, onLoginFailure)
     };
 
@@ -50,7 +58,7 @@ const FormLogin: React.FC = (props: Props) => {
     };
 
     return (
-        <Modal open={isModalOpen} className={'form-login'} width={343} closable={false} footer={null} {...otherProps}>
+        <Modal open={isModalOpen} centered className={'form-login'} width={343} closable={false} footer={null} {...otherProps}>
             <h3>Đăng Nhập</h3>
             <Form
                 name="basic"
@@ -75,13 +83,16 @@ const FormLogin: React.FC = (props: Props) => {
                     rules={[{ required: true, message: 'Vui lòng nhập mật khẩu của bạn!' }]}
                 >
                     <InputPasswordBase placeholder={'Nhập mật khẩu'} />
+
                 </Form.Item>
+
+                {request === 'failure' && <span className={'form-login-label-error'}>Tài khoản hoặc mật khẩu không chính xác!</span>}
 
                 <Space direction="horizontal" size={8} className={'form-login-footer'}>
                     <ButtonBase type="primary" ghost block onClick={onModalCancel}>
                         Đóng
                     </ButtonBase>
-                    <ButtonBase type="primary" htmlType="submit" block>
+                    <ButtonBase loading={request === 'loading'} type="primary" htmlType="submit" block>
                         Đăng nhập
                     </ButtonBase>
                 </Space>

@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e3482e4-377f-4d3e-a705-c3973e902b72" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/AccountInformation/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AccountInformation/styles/index.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ProductInformation/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ProductInformation/styles/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/Color/colors.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Color/colors.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/Color/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Color/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormLogin/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormLogin/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormLogin/styles/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormLogin/styles/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MenuAccount/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuAccount/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/Content/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Content/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layout/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Header/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/AccountManagement/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AccountManagement/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
@@ -58,7 +59,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/ProductInformation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/base/Components/FormBase" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -71,11 +72,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/base/Components/FormBase" />
       <recent name="$PROJECT_DIR$/src/components/ProductInformation" />
       <recent name="$PROJECT_DIR$/src/components/AccountInformation" />
       <recent name="$PROJECT_DIR$/src/components/MenuAccount" />
       <recent name="$PROJECT_DIR$/src/screens/AccountManagement" />
-      <recent name="$PROJECT_DIR$/src/base/Components/MenuBase" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Screens" />
@@ -102,7 +103,7 @@
       <workItem from="1701097416444" duration="3765000" />
       <workItem from="1701137698794" duration="2970000" />
       <workItem from="1701153064082" duration="16765000" />
-      <workItem from="1701177303971" duration="2277000" />
+      <workItem from="1701177303971" duration="6083000" />
     </task>
     <servers />
   </component>

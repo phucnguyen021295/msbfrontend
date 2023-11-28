@@ -32,7 +32,7 @@ function AccountManagement() {
                         <Suspense fallback={null}>
                             <Routes>
                                 <Route path="/" element={<AccountInformation />} />
-                                <Route path="productInfo" element={<ProductInformation />} />
+                                <Route path="/product-info" element={<ProductInformation />} />
                             </Routes>
                         </Suspense>
                     </Content>
