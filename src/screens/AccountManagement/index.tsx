@@ -1,54 +1,40 @@
-import React from 'react';
-import {Breadcrumb, Layout, Card, Row, Col} from 'antd';
+import React, {Suspense} from 'react';
+import {Breadcrumb, Layout} from 'antd';
+import { useLocation } from 'react-router-dom';
 
 // Components
 import MenuAccount from '../../components/MenuAccount';
+import AccountInformation from '../../components/AccountInformation';
+import ProductInformation from '../../components/ProductInformation';
 
 // Styles
 import './styles/index.less';
 import IconBase from "../../base/Components/IconBase";
+import {Route, Routes} from "react-router-dom";
 
 const {  Content, Sider } = Layout;
 
 function AccountManagement() {
+    let location = useLocation();
+
     return (
         <Layout className={'management'}>
             <Layout className={'management-container'}>
                 <Breadcrumb className={'management-breadcrumb'} separator={<IconBase name={'right'} />}>
                     <Breadcrumb.Item>Trang chủ</Breadcrumb.Item>
-                    <Breadcrumb.Item>Quản lý tài khoản</Breadcrumb.Item>
+                    <Breadcrumb.Item>{location.pathname.includes('/management/productInfo') ? 'Quản lý sản phẩm' : 'Quản lý tài khoản'}</Breadcrumb.Item>
                 </Breadcrumb>
                 <Layout>
                     <Sider width={333} className={'management-slider'}>
                         <MenuAccount />
                     </Sider>
                     <Content style={{ width: '100%', paddingLeft: 24 }}>
-                        <Card className={'management-info'} title="Thông tin chung" bordered={false}>
-                            <Row style={{paddingBottom: 16}}>
-                                <Col span={5}>
-                                    <div className={'management-info-title'}>Họ và tên</div>
-                                </Col>
-                                <Col span={19}>
-                                    <div className={'management-info-name'}>Trần Văn A</div>
-                                </Col>
-                            </Row>
-                            <Row style={{paddingBottom: 16}}>
-                                <Col className="gutter-row" span={5}>
-                                    <div className={'management-info-title'}>Số CMND/CCCD</div>
-                                </Col>
-                                <Col className="gutter-row" span={19}>
-                                    <div className={'management-info-name'}>022090001234</div>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col className="gutter-row" span={5}>
-                                    <div className={'management-info-title'}>Số điện thoại</div>
-                                </Col>
-                                <Col className="gutter-row" span={19}>
-                                    <div className={'management-info-name'}>0912763488</div>
-                                </Col>
-                            </Row>
-                        </Card>
+                        <Suspense fallback={null}>
+                            <Routes>
+                                <Route path="/" element={<AccountInformation />} />
+                                <Route path="productInfo" element={<ProductInformation />} />
+                            </Routes>
+                        </Suspense>
                     </Content>
                 </Layout>
             </Layout>

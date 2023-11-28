@@ -1,0 +1,54 @@
+@import "../../../base/Font/Typography";
+
+.management {
+  align-items: center;
+  &-container {
+    max-width: 1048px;
+    width: 100%
+  }
+  &-breadcrumb {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    .ant-breadcrumb-link {
+      .Base-Small-Regular();
+      color: var(--neutral-color_500)
+    }
+    & li:last-child .ant-breadcrumb-link {
+      .Base-Small-Semi();
+      color: var(--branding-primary-color_500);
+    }
+
+    .ant-breadcrumb-separator {
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      margin-inline: 4px;
+    }
+  }
+  &-slider {
+    background: var(--base-white) !important;
+    border-radius: 8px;
+    border: 1px solid var(--neutral-color_200);
+    height: 224px
+  }
+  &-info {
+    .ant-card-head-title {
+      .Title-Blod();
+      color: var(--neutral-color_800);
+    }
+    .ant-card-head {
+      padding: 0 16px;
+    }
+    .ant-card-body {
+      padding: 16px;
+    }
+    &-title {
+      .Base-Small-Regular();
+      color: var(--neutral-color_500)
+    }
+    &-name {
+      .Base-Small-Medium()
+    }
+  }
+}

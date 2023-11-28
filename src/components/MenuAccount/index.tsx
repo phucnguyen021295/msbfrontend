@@ -10,7 +10,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
 import IconBase from "../../base/Components/IconBase";
 import {logout} from "../../reducers/user";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -29,8 +29,8 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-    getItem('Thông tin tài khoản', 'sub1', <IconBase name={'user'} viewBox={'0 0 24 24'} size={'large'} />),
-    getItem('Thông tin sản phẩm', 'sub2', <IconBase name={'fileText'} viewBox={'0 0 24 24'} size={'large'} />),
+    getItem(<Link to={'/management'} >Thông tin tài khoản</Link>, 'sub1', <IconBase name={'user'} viewBox={'0 0 24 24'} size={'large'} />),
+    getItem(<Link to={'/management/productInfo'} >Thông tin sản phẩm</Link>, 'sub2', <IconBase name={'fileText'} viewBox={'0 0 24 24'} size={'large'} />),
     getItem('Đăng xuất', 'sub3', <IconBase name={'logout'} viewBox={'0 0 24 24'} size={'large'} />),
 ];
 
@@ -50,8 +50,7 @@ const MenuAccount: React.FC = () => {
     return (
         <div className={"menu-account"}>
             <div className={"menu-account-fullName"}>
-                <span>{'Nguyễn Hồng Phúc'}</span>
-                {/*<span>{`${user.firstName} ${user.lastName}`}</span>*/}
+                <span>{`${user.firstName} ${user.lastName}`}</span>
             </div>
             <MenuBase
                 className={"menu-account-list"}

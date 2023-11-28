@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useSelector } from 'react-redux'
 
 // Components
@@ -10,12 +10,19 @@ import './styles/index.less';
 import Logo from './styles/images/Logo.png';
 import {RootState} from "../../store";
 import FormLogin from "../../components/FormLogin";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import IconBase from "../../base/Components/IconBase";
 
 const HeaderApp: React.FC = () => {
+    let location = useLocation();
     const token = useSelector((state: RootState) => state.user.token)
     const [isModalOpen, setModalOpen] = useState(false);
+
+    useEffect(() => {
+        if(!token && location.pathname.includes('/management')) {
+            setModalOpen(true);
+        }
+    }, [location])
 
     const onLogin = (e) => {
         setModalOpen(true);
