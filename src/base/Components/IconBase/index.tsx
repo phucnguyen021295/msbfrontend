@@ -7,13 +7,15 @@ const Icons = {
     user: lazy(() => import('./images/User')),
     fileText: lazy(() => import('./images/FileText')),
     logout: lazy(() => import('./images/Logout')),
+    "arrow-right": lazy(() => import('./images/ArrowRight')),
 };
 
 const SIZE = {
     small: 14,
     normal: 16,
     medium: 18,
-    large: 24,
+    large: 20,
+    huge: 24,
 } as const;
 
 interface Props {

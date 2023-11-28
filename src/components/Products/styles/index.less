@@ -15,16 +15,30 @@
     width: 100%;
   }
   &-item {
+    width: 100%;
     border-radius: 16px;
     .ant-card-cover img {
       border-radius: 16px 16px 0 0;
     }
-    box-shadow: 0px 20px 24px -4px #10182814;
+    //box-shadow: 0px 20px 24px -4px #10182814;
     .ant-card-body {
       padding: 24px 16px;
     }
     &-meta {
       padding-bottom: 8px;
+    }
+  }
+  .ant-card-hoverable:hover {
+    box-shadow: 0px 20px 24px -4px #10182814;
+    .product-btn-detail {
+      .Base-Small-Medium();
+    }
+  }
+  &-btn-detail {
+    display: flex;
+    align-items: center;
+    span {
+      padding-right: 8px;
     }
   }
 }

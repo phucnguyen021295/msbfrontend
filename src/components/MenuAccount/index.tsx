@@ -29,9 +29,9 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-    getItem(<Link to={'/management'} >Thông tin tài khoản</Link>, 'sub1', <IconBase name={'user'} viewBox={'0 0 24 24'} size={'large'} />),
-    getItem(<Link to={'/management/product-info'} >Thông tin sản phẩm</Link>, 'sub2', <IconBase name={'fileText'} viewBox={'0 0 24 24'} size={'large'} />),
-    getItem('Đăng xuất', 'sub3', <IconBase name={'logout'} viewBox={'0 0 24 24'} size={'large'} />),
+    getItem(<Link to={'/management'} >Thông tin tài khoản</Link>, 'sub1', <IconBase name={'user'} viewBox={'0 0 24 24'} size={'huge'} />),
+    getItem(<Link to={'/management/product-info'} >Thông tin sản phẩm</Link>, 'sub2', <IconBase name={'fileText'} viewBox={'0 0 24 24'} size={'huge'} />),
+    getItem('Đăng xuất', 'sub3', <IconBase name={'logout'} viewBox={'0 0 24 24'} size={'huge'} />),
 ];
 
 const MenuAccount: React.FC = () => {

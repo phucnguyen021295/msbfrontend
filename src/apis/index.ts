@@ -15,3 +15,17 @@ export const loginApi = (username, password, success, failure) => {
 
 
 };
+
+export const getListProductApi = (success, failure) => {
+    fetch('https://012c8b68440c47d184cfa2f7fef10e47.api.mockbin.io/', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(res => res.json())
+        .then(data => success(data))
+        .catch((error) => {
+            failure(error)
+        });
+
+
+};
