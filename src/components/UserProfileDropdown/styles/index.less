@@ -1,14 +1,30 @@
 @import "../../../base/Font/Typography";
 
 .user-profile {
-  height: 32px;
   &-dropdown {
     padding: 0 0;
     margin-left: 24px;
+    height: 56px;
   }
   &-fullname {
     .Base-Small-Medium();
     color: var(--neutral-color_800);
     padding-left: 8px;
+  }
+}
+
+:where(.css-dev-only-do-not-override-1pcrnva).ant-dropdown .ant-dropdown-menu, :where(.css-dev-only-do-not-override-1pcrnva).ant-dropdown-menu-submenu .ant-dropdown-menu {
+  padding: 0;
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item {
+  height: 56px
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover {
+  background-color: var(--branding-primary-color_25);
+  span {
+    color: var(--branding-primary-color_500);
+    .Base-Small-Medium();
   }
 }

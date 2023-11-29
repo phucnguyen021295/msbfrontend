@@ -2,6 +2,10 @@ import React from 'react';
 
 // Components
 import MenuBase, {MenuProps} from "../../base/Components/MenuBase";
+import IconBase from "../../base/Components/IconBase";
+
+// Styles
+import './styles/index.less'
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -20,7 +24,7 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-    getItem('Sản phẩm', 'sub1', null, [
+    getItem(<span>Sản phẩm<IconBase name={'down'} /></span>, 'sub1', null, [
         getItem('Thẻ tin dụng', 'sub1-1', null, [
             getItem('MSB Mastercard mDigi', '1'),
             getItem('MSB Mastercard Super Free', '2'),
@@ -37,7 +41,7 @@ const items: MenuItem[] = [
         ]),
         getItem('Bảo hiểm', '11', null),
     ]),
-    getItem('So sánh', 'sub2', null, [
+    getItem(<span>So sánh<IconBase name={'down'} /></span>, 'sub2', null, [
         getItem('Thẻ tin dụng', 'sub2-1', null, [
             getItem('MSB Mastercard mDigi', '12'),
             getItem('MSB Mastercard Super Free', '13'),
@@ -72,18 +76,14 @@ const MenuApp: React.FC = () => {
             mode={'horizontal'}
             inlineIndent={8}
             items={items}
-            // expandIcon={({ expanded, onExpand, record }) =>
-            //     expanded ? (
-            //         <MinusOutlined
-            //             style={{ fontSize: '20px' }}
-            //             onClick={(e) => onExpand(record, e)}
-            //         />
-            //     ) : (
-            //         <PlusOutlined
-            //             style={{ fontSize: '20px' }}
-            //             onClick={(e) => onExpand(record, e)}
-            //         />
-            //     )}
+            expandIcon={(expand) => {
+                const {isSubMenu, isOpen} = expand;
+                return isSubMenu && isOpen ? (
+                    <IconBase name={'down'}/>
+                ) : (
+                    <IconBase name={'right'}/>
+                )
+            }}
         />
     );
 };

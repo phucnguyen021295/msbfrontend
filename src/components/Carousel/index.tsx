@@ -41,7 +41,7 @@ const App: React.FC = () => {
     };
 
     return (
-        <Carousel afterChange={onChange} className={'carousel'}>
+        <Carousel afterChange={onChange} autoplay rootClassName={'carousel'}>
             <div>
                 <CarouselItem />
             </div>

@@ -56,7 +56,12 @@ const HeaderApp: React.FC = () => {
                     Yêu cầu tư vấn
                 </Button>
                 {
-                    token && (<UserProfileDropdown />)
+                    token && (
+                        <>
+                            <div className={'header-app-menu-border'} />
+                            <UserProfileDropdown />
+                        </>
+                    )
                 }
             </div>
             <FormLogin isModalOpen={isModalOpen} onModalCancel={() => setModalOpen(false)} />
