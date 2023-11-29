@@ -7,7 +7,7 @@ import {
     Form,
     Checkbox,
     Select,
-    Switch,
+    message,
     Radio,
     Row,
     Col,
@@ -25,14 +25,20 @@ interface Props {
     onClose: () => void;
 }
 
+const REGEX_FULL_NAME_SPACE = /^[^\s]+(\s[^\s]+)+$/; // Vui lòng nhập họ và tên đầy đủ, có dấu cách ở giữa và chỉ chứa dấu nháy đơn.
+const REGEX_FULL_NAME_2SPACE = /^(?!.*\s\s)[\p{L}' ]+$/u; // Cho phép nhập chữ, và dấu nháy đơn, không cho nhập 2 dấu cách liền nhau.
+const REGEX_FULL_NAME_LAST_SPACE = /^(?!.*\s$)[\p{L}' ]+$/u;
+
+
 function AskAdvice(props: Props) {
     const [form] = Form.useForm();
+    const [messageApi, contextHolder] = message.useMessage();
     const {onClose, open} = props
 
     const TITLE = () => (
         <div className={'ask-advice-title'}>
             <span>Yêu cầu tư vấn</span>
-            <Button type={'text'} shape={'circle'} icon={<IconBase name={"close"} viewBox={'0 0 24 24'} size={'huge'} />} />
+            <Button type={'text'} shape={'circle'} onClick={onClose} icon={<IconBase name={"close"} viewBox={'0 0 24 24'} size={'huge'} />} />
         </div>
     )
 
@@ -40,17 +46,10 @@ function AskAdvice(props: Props) {
         try {
             const values = await form.validateFields();
             console.log('Success:', values);
+            onClose();
+            messageApi.success('Gửi yêu cầu thành công')
         } catch (errorInfo) {
             console.log('Failed:', errorInfo);
-        }
-    };
-
-    const handleKeyPress = (e) => {
-        // Kiểm tra nếu ký tự đầu tiên là dấu cách
-        if (e.charCode === 32 && !form.getFieldValue('fullName')) {
-            e.preventDefault();
-            // Hoặc có thể hiển thị một thông báo lỗi ở đây
-            form.validateFields('fullName', "Không được nhập dấu cách đầu tiên")
         }
     };
 
@@ -62,11 +61,15 @@ function AskAdvice(props: Props) {
             closable={false}
             placement="right"
             onClose={onClose}
+            destroyOnClose={true}
             open={open}
-            footer={ <Button type="primary" htmlType="submit" block onClick={onCheck}>
-                Xác nhận
-            </Button>}
+            footer={
+                <Button type="primary" htmlType="submit" block onClick={onCheck}>
+                    Xác nhận
+                </Button>
+            }
         >
+            {contextHolder}
             <Form
                 layout="vertical"
                 form={form}
@@ -80,18 +83,35 @@ function AskAdvice(props: Props) {
                     rules=
                         {[
                             {required: true, message: 'Vui lòng nhập họ tên' },
-                            {whitespace: true, message: 'Vui lòng nhập không để trống'},
-                            {max: 100, message: 'Vui lòng nhập qúa 100 kí tự'},
-                            // { validator: validateFirstCharacter },
+                            {max: 100, message: 'Vui lòng không nhập qúa 100 kí tự'},
+                            {
+                                validator: async (_, names) => {
+                                    if (names && names[0] === ' ') {
+                                        return Promise.reject(new Error('Kí tự đầu tiên không được để khoảng trắng'));
+                                    }
+
+                                    if(names && !REGEX_FULL_NAME_2SPACE.test(names)) {
+                                        return Promise.reject(new Error('Chỉ cho phép nhập chữ, và dấu nháy đơn, không cho nhập 2 dấu cách liền nhau'));
+                                    }
+
+                                    if(names && !REGEX_FULL_NAME_LAST_SPACE.test(names)) {
+                                        return Promise.reject(new Error('Vui lòng không để dấu cách ở cuối câu'));
+                                    }
+
+                                    if(names && !REGEX_FULL_NAME_SPACE.test(names.trim())) {
+                                        return Promise.reject(new Error('Vui lòng nhập họ và tên đầy đủ, có dấu cách ở giữa'));
+                                    }
+                                },
+                            },
                         ]}
                 >
-                    <Input placeholder={"Nhập họ và tên"} onKeyPress={handleKeyPress} />
+                    <Input placeholder={"Nhập họ và tên"} />
                 </Form.Item>
                 <Form.Item name="phone" rules={[{ required: true, message: 'Vui lòng nhập số điện thoại' }]}>
                     <Input placeholder={"Nhập số điện thoại"} />
                 </Form.Item>
                 <Row>
-                    <Col span={12}>
+                    <Col span={12} style={{paddingRight: 8}}>
                         <Form.Item name={'city'} rules={[{ required: true, message: 'Vui lòng nhập thành phố!' }]}>
                             <Select placeholder={"Chọn thành phố"}>
                                 <Select.Option value="01">Hà Nội</Select.Option>
@@ -100,10 +120,12 @@ function AskAdvice(props: Props) {
                             </Select>
                         </Form.Item>
                     </Col>
-                    <Col span={12}>
+                    <Col span={12} style={{paddingLeft: 8}}>
                         <Form.Item name={'district'} rules={[{ required: true, message: 'Vui lòng nhập Quận/Huyện!' }]}>
                             <Select placeholder={"Chọn Quận/Huyện"}>
-                                <Select.Option value="demo">Demo</Select.Option>
+                                <Select.Option value="01">Cầu Giấy</Select.Option>
+                                <Select.Option value="02">Thanh Xuân</Select.Option>
+                                <Select.Option value="03">Bắc Từ Liêm</Select.Option>
                             </Select>
                         </Form.Item>
                     </Col>
@@ -153,7 +175,7 @@ function AskAdvice(props: Props) {
                 </Form.Item>
 
                 <Form.Item name="info" rules={[{ required: true, message: 'Vui lòng nhập thông tin mô tả' }]}>
-                    <Input.TextArea placeholder={"Nhập thông tin"} allowClear showCount />
+                    <Input.TextArea style={{height: 124}} placeholder={"Nhập thông tin"} allowClear showCount />
                 </Form.Item>
             </Form>
         </Drawer>
