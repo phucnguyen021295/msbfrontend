@@ -54,4 +54,4 @@ const UserProfileDropdown: React.FC = () => {
     );
 };
 
-export default UserProfileDropdown;
+export default React.memo(UserProfileDropdown);

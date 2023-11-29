@@ -1,9 +1,12 @@
-import React, {lazy} from 'react';
-import {Layout, Affix, Spin, ConfigProvider} from 'antd';
+import React from 'react';
+import {Layout, Affix, ConfigProvider} from 'antd';
 
+// Components
 import HeaderApp from './layout/Header';
 import ContentApp from './layout/Content';
 import FooterApp from './layout/Footer';
+
+// Config Themes
 import themeConfig from "./base/Color/theme";
 
 const { Header, Footer, Content } = Layout;
@@ -26,11 +29,11 @@ const footerStyle: React.CSSProperties = {
     padding: '12px 40px'
 };
 
-// Chia layout cho web làm 3 phần Header, Content, Footer với Header và Footer gần như không thay đổi, chỉ thay đổi phần Content
+// Todo Chia layout cho web làm 3 phần Header, Content, Footer với Header và Footer gần như không thay đổi, chỉ thay đổi phần Content
 const App = () => (
     <ConfigProvider theme={themeConfig}>
         <Layout>
-            {/* Fix Header luôn nằm trên top */}
+            {/* Todo: Fix Header luôn nằm trên top */}
             <Affix offsetTop={0}>
                 <Header style={headerStyle}><HeaderApp /></Header>
             </Affix>

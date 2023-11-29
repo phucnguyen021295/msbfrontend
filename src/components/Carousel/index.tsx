@@ -35,7 +35,7 @@ const CarouselItem: React.FC = () => {
     )
 }
 
-const App: React.FC = () => {
+const CarouselApp: React.FC = () => {
     const onChange = (currentSlide: number) => {
         console.log(currentSlide);
     };
@@ -61,4 +61,4 @@ const App: React.FC = () => {
     );
 };
 
-export default App;
+export default React.memo(CarouselApp);

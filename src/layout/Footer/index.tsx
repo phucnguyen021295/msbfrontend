@@ -14,4 +14,4 @@ const FooterApp: React.FC = () => {
     )
 }
 
-export default FooterApp;
+export default React.memo(FooterApp);

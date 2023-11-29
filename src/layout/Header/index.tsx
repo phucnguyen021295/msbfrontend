@@ -24,6 +24,7 @@ const HeaderApp: React.FC = () => {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
+        /* Todo: Check nếu người dùng chưa đăng nhập mà muốn vào màn Quản lý tài khoản thì reject ra home và mở modal đăng nhập */
         if(!token && location.pathname.includes('/management')) {
             navigate('/')
             setModalOpen(true);
@@ -70,4 +71,4 @@ const HeaderApp: React.FC = () => {
     )
 }
 
-export default HeaderApp;
+export default React.memo(HeaderApp);

@@ -40,7 +40,6 @@ const MenuAccount: React.FC = () => {
     const user = useSelector((state: RootState) => state.user)
 
     const onClick: MenuProps['onClick'] = (e) => {
-        console.log('click ', e);
         if(e.key === 'sub3') {
             navigate('/')
             dispatch(logout())
@@ -69,4 +68,4 @@ const menuStyle: React.CSSProperties = {
     width: 331,
 };
 
-export default MenuAccount;
+export default React.memo(MenuAccount);

@@ -97,4 +97,4 @@ const FormLogin: React.FC = (props: Props) => {
     )
 }
 
-export default FormLogin;
+export default React.memo(FormLogin);

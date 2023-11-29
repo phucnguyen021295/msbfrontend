@@ -46,4 +46,4 @@ const Choose: React.FC = () => {
     )
 }
 
-export default Choose;
+export default React.memo(Choose);

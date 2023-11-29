@@ -64,7 +64,6 @@ const items: MenuItem[] = [
 ];
 
 const MenuApp: React.FC = () => {
-
     const onClick: MenuProps['onClick'] = (e) => {
         console.log('click ', e);
     };
@@ -98,4 +97,4 @@ const menuStyle: React.CSSProperties = {
     justifyContent: 'end',
 };
 
-export default MenuApp;
+export default React.memo(MenuApp);

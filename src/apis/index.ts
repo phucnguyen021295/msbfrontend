@@ -1,3 +1,4 @@
+// Api login
 export const loginApi = (username, password, success, failure) => {
     fetch('https://dummyjson.com/auth/login', {
         method: 'POST',
@@ -16,6 +17,7 @@ export const loginApi = (username, password, success, failure) => {
 
 };
 
+// Api get danh sách sản phẩm
 export const getListProductApi = (success, failure) => {
     fetch('https://012c8b68440c47d184cfa2f7fef10e47.api.mockbin.io/', {
         method: 'GET',
