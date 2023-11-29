@@ -11,7 +11,8 @@ const { Header, Footer, Content } = Layout;
 const headerStyle: React.CSSProperties = {
     height: 72,
     backgroundColor: '#fff',
-    padding: '8px 40px'
+    display: "flex",
+    justifyContent: "center"
 };
 
 const contentStyle: React.CSSProperties = {

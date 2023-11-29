@@ -5,9 +5,16 @@
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Products/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserProfileDropdown/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserProfileDropdown/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserProfileDropdown/styles/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserProfileDropdown/styles/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/Font/Fontface/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Font/Fontface/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/styles/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/styles/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/Header/styles/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/Header/styles/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../public/favicon.ico" beforeDir="false" />
@@ -53,7 +60,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Menu/styles" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -66,11 +73,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/components/Menu/styles" />
       <recent name="$PROJECT_DIR$/src/components/AskAdvice" />
       <recent name="$PROJECT_DIR$/src/base/Components/FormBase" />
       <recent name="$PROJECT_DIR$/src/components/ProductInformation" />
-      <recent name="$PROJECT_DIR$/src/components/AccountInformation" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Screens" />
@@ -97,7 +104,8 @@
       <workItem from="1701097416444" duration="3765000" />
       <workItem from="1701137698794" duration="2970000" />
       <workItem from="1701153064082" duration="16765000" />
-      <workItem from="1701177303971" duration="29101000" />
+      <workItem from="1701177303971" duration="29260000" />
+      <workItem from="1701238058616" duration="2247000" />
     </task>
     <servers />
   </component>
