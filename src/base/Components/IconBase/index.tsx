@@ -9,6 +9,8 @@ const Icons = {
     logout: lazy(() => import('./images/Logout')),
     "arrow-right": lazy(() => import('./images/ArrowRight')),
     close: lazy(() => import('./images/Close')),
+    checked: lazy(() => import('./images/Checked')),
+    radio: lazy(() => import('./images/Radio')),
 };
 
 const SIZE = {

@@ -16,6 +16,7 @@ import {
 
 // Components
 import IconBase from "../../base/Components/IconBase";
+import RadioBase, {RadioGroupBase} from "../../base/Components/RadioBase";
 
 // Styles
 import './styles/index.less';
@@ -133,12 +134,15 @@ function AskAdvice(props: Props) {
                 <Form.Item
                     name="radio-group"
                     label="Giới tính"
+                    className={"ask-advice-form-radio"}
                     rules={[{ required: true, message: 'Vui lòng chọn giới tính' }]}
                 >
-                    <Radio.Group>
-                        <Radio value="a">Nam</Radio>
-                        <Radio value="b">Nữ</Radio>
-                    </Radio.Group>
+                    <RadioGroupBase>
+                        <RadioBase value="a">
+                            Nam
+                        </RadioBase>
+                        <RadioBase value="b">Nữ</RadioBase>
+                    </RadioGroupBase>
                 </Form.Item>
 
                 <div className={'ask-advice-body-title'}>Sản phẩm cần tư vấn</div>
