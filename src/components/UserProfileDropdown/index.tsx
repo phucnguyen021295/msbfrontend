@@ -12,6 +12,7 @@ import { logout } from '../../reducers/user'
 
 import './styles/index.less'
 import {RootState} from "../../store";
+import IconBase from "../../base/Components/IconBase";
 
 const UserProfileDropdown: React.FC = () => {
     const dispatch = useDispatch()
@@ -47,6 +48,7 @@ const UserProfileDropdown: React.FC = () => {
             <Button type={'link'} disabled rootClassName="user-profile-dropdown">
                 <Avatar size={32} src={user.image} icon={<UserOutlined />} />
                 <span className="user-profile-fullname">{`${user.firstName} ${user.lastName}`}</span>
+                <IconBase name={'down'} />
             </Button>
         </Dropdown>
     );

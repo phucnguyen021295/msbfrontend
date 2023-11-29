@@ -20,7 +20,7 @@ const { Meta } = Card;
 const Products: React.FC = () => {
     const dispatch = useDispatch()
     const product = useSelector((state: RootState) => state.product);
-    const [request, setRequest] = useState('loading');
+    const [request, setRequest] = useState(product && product.length > 0 ? 'success' : 'loading');
 
     const onGetListSuccess = (data) => {
         console.log('onGetListSuccess', data);
