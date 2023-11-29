@@ -1,18 +1,17 @@
 import React from 'react';
-import { Menu, Dropdown, Avatar } from 'antd';
+import { Button, Dropdown, Avatar } from 'antd';
 import type { MenuProps } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import {useDispatch, useSelector} from "react-redux";
+import {Link, useNavigate} from "react-router-dom";
 
 // Components
-import ButtonBase from "../../base/Components/ButtonBase";
 
 // Actions
 import { logout } from '../../reducers/user'
 
 import './styles/index.less'
 import {RootState} from "../../store";
-import {Link, useNavigate} from "react-router-dom";
 
 const UserProfileDropdown: React.FC = () => {
     const dispatch = useDispatch()
@@ -45,10 +44,10 @@ const UserProfileDropdown: React.FC = () => {
 
     return (
         <Dropdown menu={{items}} placement="bottomRight" overlayClassName={"user-profile"}>
-            <ButtonBase type={'link'} disabled rootClassName="user-profile-dropdown">
+            <Button type={'link'} disabled rootClassName="user-profile-dropdown">
                 <Avatar size={32} src={user.image} icon={<UserOutlined />} />
                 <span className="user-profile-fullname">{`${user.firstName} ${user.lastName}`}</span>
-            </ButtonBase>
+            </Button>
         </Dropdown>
     );
 };

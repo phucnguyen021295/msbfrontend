@@ -1,23 +1,27 @@
 import React, {useEffect, useState} from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+import {Link, useLocation, useNavigate} from "react-router-dom";
+import {Button} from "antd";
 
 // Components
 import MenuApp from '../../components/Menu';
 import UserProfileDropdown from '../../components/UserProfileDropdown';
-import ButtonBase from '../../base/Components/ButtonBase';
+import FormLogin from "../../components/FormLogin";
+import AskAdvice from "../../components/AskAdvice";
+import IconBase from "../../base/Components/IconBase";
 
+import {RootState} from "../../store";
+
+// Styles
 import './styles/index.less';
 import Logo from './styles/images/Logo.png';
-import {RootState} from "../../store";
-import FormLogin from "../../components/FormLogin";
-import {Link, useLocation, useNavigate} from "react-router-dom";
-import IconBase from "../../base/Components/IconBase";
 
 const HeaderApp: React.FC = () => {
     let location = useLocation();
     const navigate = useNavigate();
     const token = useSelector((state: RootState) => state.user.token)
     const [isModalOpen, setModalOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         if(!token && location.pathname.includes('/management')) {
@@ -39,23 +43,24 @@ const HeaderApp: React.FC = () => {
                 <MenuApp />
                 {
                     !token && (
-                        <ButtonBase rootClassName={'header-app-menu-btn-login'} onClick={onLogin}>
+                        <Button rootClassName={'header-app-menu-btn-login'} onClick={onLogin}>
                             Đăng nhập
-                        </ButtonBase>
+                        </Button>
                     )
 
                 }
-                <ButtonBase icon={<IconBase name={"phone"} />} rootClassName={'header-app-menu-btn-login'}>
+                <Button icon={<IconBase name={"phone"} />} rootClassName={'header-app-menu-btn-login'}>
                     1900 6083
-                </ButtonBase>
-                <ButtonBase rootClassName={'header-app-menu-btn-request'} type={"primary"} ghost>
+                </Button>
+                <Button rootClassName={'header-app-menu-btn-request'} type={"primary"} ghost onClick={() => setOpen(true)}>
                     Yêu cầu tư vấn
-                </ButtonBase>
+                </Button>
                 {
                     token && (<UserProfileDropdown />)
                 }
             </div>
             <FormLogin isModalOpen={isModalOpen} onModalCancel={() => setModalOpen(false)} />
+            <AskAdvice open={open} onClose={() => setOpen(false)} />
         </div>
     )
 }

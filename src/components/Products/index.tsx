@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import { Card, Col, Row, Space, Image, Skeleton } from 'antd';
+import { Card, Col, Row, Space, Button, Skeleton } from 'antd';
 import {useDispatch, useSelector} from "react-redux";
 
 // Components
-import ButtonBase from "../../base/Components/ButtonBase";
+import IconBase from "../../base/Components/IconBase";
 
 // Apis
 import {getListProductApi} from "../../apis";
@@ -13,7 +13,7 @@ import {update} from '../../reducers/product';
 
 import './styles/index.less';
 import {RootState} from "../../store";
-import IconBase from "../../base/Components/IconBase";
+
 
 const { Meta } = Card;
 
@@ -65,9 +65,9 @@ const Products: React.FC = () => {
                                                 title={item.name}
                                                 description={item.summary}
                                             />
-                                            <ButtonBase type={'link'} size={'large'} rootClassName={'product-btn-detail'}>
+                                            <Button type={'link'} size={'large'} rootClassName={'product-btn-detail'}>
                                                 Khám phá ngay <IconBase name={'arrow-right'} viewBox={'0 0 20 20'} size={'large'} />
-                                            </ButtonBase>
+                                            </Button>
                                         </Card>
                                     </Col>
                                 )

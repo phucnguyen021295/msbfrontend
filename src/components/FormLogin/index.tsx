@@ -1,11 +1,7 @@
 import React, {useState} from 'react';
-import {Modal, Form, Space} from 'antd';
+import {Modal, Form, Space, Button, Input} from 'antd';
 import { useDispatch } from 'react-redux'
 import {useNavigate} from 'react-router-dom';
-
-// Components
-import ButtonBase from "../../base/Components/ButtonBase";
-import InputBase, {InputPasswordBase} from "../../base/Components/InputBase";
 
 // Apis
 import {loginApi} from '../../apis';
@@ -74,7 +70,7 @@ const FormLogin: React.FC = (props: Props) => {
                     colon={false}
                     rules={[{ required: true, message: 'Vui lòng nhập tên người dùng của bạn!' }]}
                 >
-                    <InputBase placeholder={'Nhập tên tài khoản'} />
+                    <Input placeholder={'Nhập tên tài khoản'} />
                 </Form.Item>
 
                 <Form.Item<FieldType>
@@ -82,19 +78,19 @@ const FormLogin: React.FC = (props: Props) => {
                     name="password"
                     rules={[{ required: true, message: 'Vui lòng nhập mật khẩu của bạn!' }]}
                 >
-                    <InputPasswordBase placeholder={'Nhập mật khẩu'} />
+                    <Input.Password placeholder={'Nhập mật khẩu'} />
 
                 </Form.Item>
 
                 {request === 'failure' && <span className={'form-login-label-error'}>Tài khoản hoặc mật khẩu không chính xác!</span>}
 
                 <Space direction="horizontal" size={8} className={'form-login-footer'}>
-                    <ButtonBase type="primary" ghost block onClick={onModalCancel}>
+                    <Button type="primary" ghost block onClick={onModalCancel}>
                         Đóng
-                    </ButtonBase>
-                    <ButtonBase loading={request === 'loading'} type="primary" htmlType="submit" block>
+                    </Button>
+                    <Button loading={request === 'loading'} type="primary" htmlType="submit" block>
                         Đăng nhập
-                    </ButtonBase>
+                    </Button>
                 </Space>
             </Form>
         </Modal>

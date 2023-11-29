@@ -8,6 +8,7 @@ const Icons = {
     fileText: lazy(() => import('./images/FileText')),
     logout: lazy(() => import('./images/Logout')),
     "arrow-right": lazy(() => import('./images/ArrowRight')),
+    close: lazy(() => import('./images/Close')),
 };
 
 const SIZE = {

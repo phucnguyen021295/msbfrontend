@@ -1,6 +1,6 @@
 import type { ThemeConfig } from 'antd';
 
-import Color from '../../../Color';
+import Color from '../Color';
 
 const themeConfig: ThemeConfig = {
     token: {
@@ -10,7 +10,8 @@ const themeConfig: ThemeConfig = {
         controlHeightLG: 48,
         controlHeightSM: 32,
         colorLink: Color.Branding.Primary.color_500,
-        paddingContentHorizontal: 12
+        paddingContentHorizontal: 12,
+        paddingInline: 12
     },
 };
 

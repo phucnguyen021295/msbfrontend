@@ -1,8 +1,5 @@
 import React from 'react';
-import { Carousel } from 'antd';
-
-// Components
-import ButtonBase from "../../base/Components/ButtonBase";
+import { Carousel, Button } from 'antd';
 
 import './styles/index.less';
 import Banner from './styles/images/Frame628229.png';
@@ -26,9 +23,9 @@ const CarouselItem: React.FC = () => {
                     <span className={'carousel-summary'}>
                         Lương từ 8 triệu/tháng, nhận ngay tới 200 triệu VND
                     </span>
-                    <ButtonBase type={"primary"} style={{width: 185, marginTop: 32}}>
+                    <Button type={"primary"} style={{width: 185, marginTop: 32}}>
                         Khám phá ngay
-                    </ButtonBase>
+                    </Button>
                 </div>
                 <div className={'carousel-img'}>
                     <img src={Banner} height={540} width={550} />
